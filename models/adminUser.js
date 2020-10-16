@@ -4,7 +4,7 @@ const mongoose = require("mongoose"),
   { Schema } = require("mongoose"),
   // Subscriber = require("./subscriber");
 
-var userSchema = new Schema(
+var adminUserSchema = new Schema(
   {
     name: {
       first: {
@@ -34,9 +34,9 @@ var userSchema = new Schema(
     // subscribedAccount: { type: Schema.Types.ObjectId, ref: "Subscriber" },
     // courses: [{ type: Schema.Types.ObjectId, ref: "Course" }]
   },
-  // {
-  //   timestamps: true
-  // }
+  {
+    timestamps: true
+  }
 );
 
 userSchema.virtual("fullName").get(function() {
