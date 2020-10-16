@@ -1,0 +1,39 @@
+Project title: Dealership Website
+Team name: MISter steal your girl
+Team members: Dan Ludwig and Chase Anderson
+
+Project Milesstone 2
+October 15, 2020
+
+Progress Since Last Milestone:
+- Decided on 10 dynamic pages the website will have (along with the homescreen).
+- Designed entity relationship diagram for the mongoose database we will be using for this project.
+- Started a github repository to share the files for this project and installed all the dependencies we anticipated using (which we can add more later if needed).
+- Set up MVC architecutre for organizing the project.
+
+Problems Encountered/Questions:
+- Regarding the database, do we need a certain amount of relationships between the tables? We've only got one connecting so far. 
+- 
+
+
+
+Project Milestone 1
+September 24, 2020
+
+Project Summary:
+Level Up Car Sales LLC., a small used car dealership in Ogden, Utah needs a functional
+web form that will collect referral information for customers to be contacted by employees of
+the dealership. As of right now they only have their phone number listed and an email for
+customers to contact them. With this form they will be able to respond from multiple emails
+within the company and thus respond faster to customers.
+The form will collect the information and send it to a database that will record the
+information and make it accessible to the dealership. The customer already has a basic website
+set up and there may need to be adjustments made in order to accommodate the form. We will
+also look into form services as well.
+Description:
+The deliverable for this project will be a functioning form on their website that will
+collect information for referrals and send them to a database that is accessible to the client.
+The user will enter information into the form such as name, address, phone number, email
+address, etc. Upon the user hitting submit and accepting terms of being contacted by the
+dealership, the information will be sent to a database that will be accessible to employees of
+the dealership so they can contact the customer.
