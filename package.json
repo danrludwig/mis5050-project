@@ -1,0 +1,19 @@
+{
+  "name": "mis5050-project",
+  "version": "1.0.0",
+  "description": "Website project for MIS 5050",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danrludwig/mis5050-project.git"
+  },
+  "author": "Dan Ludwig and Chase Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danrludwig/mis5050-project/issues"
+  },
+  "homepage": "https://github.com/danrludwig/mis5050-project#readme"
+}
