@@ -1,0 +1,20 @@
+<div class="data-form">
+    <form class="form-signin" action="/inventory/createVehicle" method="POST">
+      <h2 class="form-signin-heading">Add to Vehicle Inventory</h2>
+      <label for="inputStockNumber">Stock Number</label>
+      <input type="text" name="stockNumber" id="inputStockNumber" class="form-control" placeholder="Stock Number" autofocus>
+      <label for="inputMake">Make</label>
+      <input type="text" name="make" id="inputMake" class="form-control" placeholder="Make" autofocus>
+      <label for="inputModel">Model</label>
+      <input type="text" name="model" id="inputModel" class="form-control" placeholder="Model">
+      <label for="inputYear">Year</label>
+      <input type="text" name="year" id="inputYear" class="form-control" placeholder="Year" required>
+      <label for="inputPrice">Price</label>
+      <input type="text" name="price" id="inputPrice" class="form-control" placeholder="Price" required>
+      <label for="inputCondition">Condition</label>
+      <input type="text" name="condition" id="inputCondition" class="form-control" placeholder="Condition" autofocus>
+      <input type="checkbox" id="isSold" name="isSold">
+      <label for="isSold">Is this vehicle sold?</label>
+      <br/><button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
+    </form>
+  </div>

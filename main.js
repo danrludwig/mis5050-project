@@ -40,10 +40,21 @@ router.use(express.json());
 router.get("/", homeController.index);
 
 router.get("/login", loginController.indexView);
+router.get("/login/admin", loginController.adminLogin);
+router.get("/login/customer", loginController.customerLogin);
 
 router.get("/reviews", reviewsController.indexView);
+router.get("/reviews/new", reviewsController.new);
+router.get("/reviews/create", reviewsController.create);
 
 router.get("/inventory", inventoryController.indexView);
+router.get("/inventory/vehicles", inventoryController.viewVehicles);
+router.get("/inventory/parts", inventoryController.viewParts);
+router.get("/inventory/new", inventoryController.new);
+router.get("/inventory/new-parts", inventoryController.newParts);
+router.post("/inventory/create-vehicle", inventoryController.createVehicle, inventoryController.redirectView);
+router.post("/inventory/create-part", inventoryController.createPart, inventoryController.redirectView);
+
 
 router.use(errorController.pageNotFoundError);
 router.use(errorController.internalServerError);

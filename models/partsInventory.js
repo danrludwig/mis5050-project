@@ -14,7 +14,7 @@ const mongoose = require("mongoose"),
     price: {
         type: Number
     },
-    numberAvailable: {
+    quantity: {
         type: Number
     }
  });
