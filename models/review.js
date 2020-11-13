@@ -6,14 +6,8 @@ const mongoose = require("mongoose"),
     reviewSchema = new Schema(
         {
             name: {
-                first: {
-                    type: String, 
-                    trim: true 
-                },
-                last: {
-                    type: String, 
-                    trim: true 
-                }
+                type: String, 
+                trim: true 
             },
             userAccount: {
                 type: Schema.Types.ObjectId,

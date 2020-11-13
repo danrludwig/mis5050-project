@@ -1,0 +1,12 @@
+<div class="data-form">
+    <form class="form-signin" action="<%=`/reviews/${review._id}/update?_method=PUT`%>" method="POST">
+      <h2 class="form-signin-heading">Edit Review</h2>
+      <label for="inputName">Name</label>
+      <input type="text" name="name" id="inputName" class="form-control" value="<%= review.name %>" placeholder="Name" autofocus>
+      <label for="inputEmail">email</label>
+      <input type="text" name="email" id="inputEmail" class="form-control" value="<%= review.email %>" placeholder="E-Mail" autofocus>
+      <label for="inputReviewText">Review</label>
+      <input type="text" name="reviewText" id="inputReviewText" class="form-control" value="<%= review.reviewText %>" placeholder="Write how you feel about us">
+      <br/><button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+    </form>
+  </div>
