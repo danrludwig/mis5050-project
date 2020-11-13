@@ -1,5 +1,7 @@
 "use strict";
 
+const { redirectView } = require("./controllers/inventoryController");
+
 const express = require("express"),
   layouts = require("express-ejs-layouts"),
   app = express(),
@@ -45,7 +47,7 @@ router.get("/login/customer", loginController.customerLogin);
 
 router.get("/reviews", reviewsController.indexView);
 router.get("/reviews/new", reviewsController.new);
-router.get("/reviews/create", reviewsController.create);
+router.post("/reviews/create", reviewsController.create, redirectView);
 
 router.get("/inventory", inventoryController.indexView);
 router.get("/inventory/vehicles", inventoryController.viewVehicles);

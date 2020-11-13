@@ -1,5 +1,5 @@
 "use strict";
-
+const Reviews = require("../models/review");
 
 module.exports = {
   indexView: (req, res) => {
@@ -25,4 +25,13 @@ module.exports = {
         next(error);
       });
   },
+
+  redirectView: (req, res, next) => {
+    let redirectedPath = res.locals.redirect;
+    if (redirectedPath !== undefined) {
+      res.redirect(redirectedPath);
+    } else {
+      next();
+    } 
+  }
 };
