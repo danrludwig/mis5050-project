@@ -14,6 +14,8 @@ const express = require("express"),
   mongoose = require("mongoose"),
   methodOverride = require("method-override");
 
+  
+
 mongoose.connect(
   "mongodb+srv://chaseanderson:Ca12131994!@cluster0.97xaw.mongodb.net/dealer_db?retryWrites=true&w=majority",
   { useNewUrlParser: true }
@@ -45,9 +47,15 @@ router.get("/login", loginController.indexView);
 router.get("/login/admin", loginController.adminLogin);
 router.get("/login/customer", loginController.customerLogin);
 
-router.get("/reviews", reviewsController.indexView);
+router.get("/reviews", reviewsController.index, reviewsController.indexView);
 router.get("/reviews/new", reviewsController.new);
 router.post("/reviews/create", reviewsController.create, redirectView);
+router.get("/reviews/:id/edit", reviewsController.edit);
+router.put("/reviews/:id/update", reviewsController.update, reviewsController.redirectView);
+router.get("/reviews/:id", reviewsController.index, reviewsController.indexView);
+router.delete("/reviews/:id/delete", reviewsController.delete, reviewsController.redirectView);
+
+
 
 router.get("/inventory", inventoryController.indexView);
 router.get("/inventory/vehicles", inventoryController.viewVehicles);
