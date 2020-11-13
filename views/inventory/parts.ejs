@@ -1,3 +1,33 @@
 <h3>Parts Inventory</h3>
 <a class="button" href="/inventory/new-parts">Add Parts Inventory</a>
-<p>parts inventory here</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Part Number</th>
+            <th>Part Name</th>   
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% parts.forEach(part => { %>
+            <tr>
+                <td>
+                    <%= part.partNumber %>
+                </td>
+                <td>
+                    <%= part.partName %>
+                </td>
+                <td>
+                    <%= part.price %>
+                </td>
+                <td>
+                    <%= part.quantity %>
+                </td>
+                <td>
+                    <a href="<%=`/inventory/parts/${part._id}/delete?_method=DELETE`%>" onclick="return confirm('Are you positive you want to delete this?')">Delete</a>
+                </td>
+            <% }) %>
+    </tbody>
+</table>

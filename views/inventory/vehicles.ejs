@@ -1,3 +1,46 @@
 <h3>Vehicle Inventory</h3>
 <a class="button" href="/inventory/new">Add Vehicle Inventory</a>
-<p>list of vehicels here</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Stock Number</th>
+            <th>Year</th>   
+            <th>Make</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>Condition</th>
+            <th>Is Sold</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% vehicles.forEach(vehicle => { %>
+            <tr>
+                <td>
+                    <%= vehicle.stockNumber %>
+                </td>
+                <td>
+                    <%= vehicle.year %>
+                </td>
+                <td>
+                    <%= vehicle.make %>
+                </td>
+                <td>
+                    <%= vehicle.model %>
+                </td>
+                <td>
+                    <%= vehicle.price %>
+                </td>
+                <td>
+                    <%= vehicle.condition %>
+                </td>
+                <td>
+                    <%= vehicle.isSold %>
+                </td>
+                <td>
+                    <a href="<%=`/inventory/vehicles/${vehicle._id}/delete?_method=DELETE`%>" onclick="return confirm('Are you positive you want to delete this?')">Delete</a>
+                </td>
+            </tr>
+            <% }) %>
+    </tbody>
+</table>

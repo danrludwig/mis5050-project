@@ -16,7 +16,7 @@ const express = require("express"),
 
 mongoose.connect(
   "mongodb+srv://chaseanderson:Ca12131994!@cluster0.97xaw.mongodb.net/dealer_db?retryWrites=true&w=majority",
-  { useNewUrlParser: true }
+  { useNewUrlParser: true , useUnifiedTopology: true}
 );
 mongoose.set("useCreateIndex", true);
 
@@ -50,12 +50,14 @@ router.get("/reviews/new", reviewsController.new);
 router.post("/reviews/create", reviewsController.create, redirectView);
 
 router.get("/inventory", inventoryController.indexView);
-router.get("/inventory/vehicles", inventoryController.viewVehicles);
-router.get("/inventory/parts", inventoryController.viewParts);
+router.get("/inventory/vehicles", inventoryController.indexVehicles, inventoryController.viewVehicles);
+router.get("/inventory/parts", inventoryController.indexParts, inventoryController.viewParts);
 router.get("/inventory/new", inventoryController.new);
 router.get("/inventory/new-parts", inventoryController.newParts);
 router.post("/inventory/create-vehicle", inventoryController.createVehicle, inventoryController.redirectView);
 router.post("/inventory/create-part", inventoryController.createPart, inventoryController.redirectView);
+router.delete("/inventory/parts/:id/delete", inventoryController.deletePart, inventoryController.redirectView);
+router.delete("/inventory/vehicles/:id/delete", inventoryController.deleteVehicle, inventoryController.redirectView);
 
 
 router.use(errorController.pageNotFoundError);

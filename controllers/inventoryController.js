@@ -1,9 +1,9 @@
 "use strict";
 
+const partsInventory = require("../models/partsInventory");
+const vehicleInventory = require("../models/vehicleInventory");
 const VehicleInventory = require("../models/vehicleInventory"),
-  PartsInventory = require("../models/partsInventory"),
-  httpStatus = require("http-status-codes");
-// const User = require("../models/inventory");
+  PartsInventory = require("../models/partsInventory");
 
 
 module.exports = {
@@ -15,6 +15,30 @@ module.exports = {
   },
   viewVehicles: (req, res) => {
     res.render("inventory/vehicles");
+  },
+  
+  indexVehicles: (req, res, next) => {
+    VehicleInventory.find({})
+    .then(vehicles => {
+      res.locals.vehicles = vehicles;
+      next();
+    })
+    .catch(error => {
+      console.log(`Error fetching vehicles: ${error.message}`);
+      next(error);
+    })
+  },
+
+  indexParts: (req, res, next) => {
+    PartsInventory.find({})
+    .then(parts => {
+      res.locals.parts = parts;
+      next();
+    })
+    .catch(error => {
+      console.log(`Error fetching vehicles: ${error.message}`);
+      next(error);
+    })
   },
 
   redirectView: (req, res, next) => {
@@ -30,6 +54,11 @@ module.exports = {
   },
 
   createVehicle: (req, res, next) => {
+    if (req.body.isSold == "on") {
+      req.body.isSold = true;
+    } else {
+      req.body.isSold = false;
+    }
     let inventoryParams = {
       stockNumber: req.body.stockNumber,
       make: req.body.make,
@@ -39,7 +68,7 @@ module.exports = {
       condition: req.body.condition,
       isSold: req.body.isSold
     };
-    VehicleInventory.create(vehicleInventoryParams)
+    VehicleInventory.create(inventoryParams)
       .then(vehicleInventory => {
         res.locals.redirect = "/inventory";
         res.locals.vehicleInventory = vehicleInventory;
@@ -57,7 +86,7 @@ module.exports = {
       price: req.body.price,
       quantity: req.body.quantity
     };
-    PartsInventory.create(inventoryParams)
+    PartsInventory.create(inventoryPartParams)
       .then(partsInventory => {
         res.locals.redirect = "/inventory";
         res.locals.partsInventory = partsInventory;
@@ -73,4 +102,30 @@ module.exports = {
     if (redirectPath !== undefined) res.redirect(redirectPath);
     else next();
   },
+
+  deletePart: (req, res, next) => {
+    let partsId = req.params.id;
+    partsInventory.findByIdAndRemove(partsId)
+    .then(() => {
+      res.locals.redirect = "/inventory";
+      next();
+    })
+    .catch(error => {
+      console.log(`Error deleting part by id: ${error.message}`);
+      next();
+    })
+  },
+
+  deleteVehicle: (req, res, next) => {
+    let vehicleId = req.params.id;
+    vehicleInventory.findByIdAndRemove(vehicleId)
+    .then(() => {
+      res.locals.redirect = "/inventory";
+      next();
+    })
+    .catch(error => {
+      console.log(`Error deleting vehicle by id: ${error.message}`);
+      next();
+    })
+  }
 };
