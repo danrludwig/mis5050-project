@@ -17,7 +17,7 @@ const express = require("express"),
   
 
 mongoose.connect(
-  "mongodb+srv://chaseanderson:Ca12131994!@cluster0.97xaw.mongodb.net/dealer_db?retryWrites=true&w=majority",
+  "mongodb+srv://chaseanderson:chasedatabase@cluster0.97xaw.mongodb.net/dealer_db?retryWrites=true&w=majority",
   { useNewUrlParser: true , useUnifiedTopology: true}
 );
 mongoose.set("useCreateIndex", true);
