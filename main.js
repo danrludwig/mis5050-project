@@ -12,7 +12,8 @@ const express = require("express"),
   reviewsController = require("./controllers/reviewsController"),
   loginController = require("./controllers/loginController"),
   mongoose = require("mongoose"),
-  methodOverride = require("method-override");
+  methodOverride = require("method-override"),
+  fileUpload = require("express-fileupload");
 
 mongoose.connect(
   "mongodb+srv://chaseanderson:chasedatabase@cluster0.97xaw.mongodb.net/dealer_db?retryWrites=true&w=majority",
@@ -38,6 +39,7 @@ router.use(
   })
 );
 router.use(express.json());
+router.use(fileUpload());
 
 router.get("/", homeController.index);
 
