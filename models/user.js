@@ -1,6 +1,7 @@
 "use strict";
 
 const mongoose = require("mongoose"),
+passportLocalMongoose = require("passport-local-mongoose"),
   { Schema } = mongoose,
   userSchema = new Schema(
     {
@@ -37,5 +38,8 @@ const mongoose = require("mongoose"),
 userSchema.virtual("fullName").get(() => {
   return `${this.name.first} ${this.name.last}`;
 });
+userSchema.plugin(passportLocalMongoose, {
+  usernameField: "email"
+  });
 
 module.exports = mongoose.model("User", userSchema);

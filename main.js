@@ -11,7 +11,7 @@ const express = require("express"),
   inventoryController = require("./controllers/inventoryController"),
   reviewsController = require("./controllers/reviewsController"),
   loginController = require("./controllers/loginController"),
-  mongoose = require("mongoose"),  
+  mongoose = require("mongoose"),
   expressSession = require("express-session"),
   passport = require("passport"),
   cookieParser = require("cookie-parser"),
@@ -29,9 +29,9 @@ app.use(expressSession({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-// passport.use(User.createStrategy());
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 app.use((req, res, next) => {
   res.locals.loggedIn = req.isAuthenticated();
   res.locals.currentUser = req.user;
