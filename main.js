@@ -11,9 +11,33 @@ const express = require("express"),
   inventoryController = require("./controllers/inventoryController"),
   reviewsController = require("./controllers/reviewsController"),
   loginController = require("./controllers/loginController"),
-  mongoose = require("mongoose"),
-  methodOverride = require("method-override");
+  mongoose = require("mongoose"),  
+  expressSession = require("express-session"),
+  passport = require("passport"),
+  cookieParser = require("cookie-parser"),
+  methodOverride = require("method-override"),
+  User = require("./models/user");
 
+app.use(cookieParser("secret_passcode"));
+app.use(expressSession({
+  secret: "secret_passcode",
+  cookie: {
+    maxAge: 4000000
+  },
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+// passport.use(User.createStrategy());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
+app.use((req, res, next) => {
+  res.locals.loggedIn = req.isAuthenticated();
+  res.locals.currentUser = req.user;
+  next();
+});
+app.post("/login", loginController.apiAuthenticate)
   
 
 mongoose.connect(
@@ -46,6 +70,10 @@ router.get("/", homeController.index);
 router.get("/login", loginController.indexView);
 router.get("/login/admin", loginController.adminLogin);
 router.get("/login/customer", loginController.customerLogin);
+router.post("/user/create", loginController.validate, loginController.create, loginController.redirectView);
+router.get("/user/login", loginController.login);
+router.post("/user/login", loginController.authenticate);
+
 
 router.get("/reviews", reviewsController.index, reviewsController.indexView);
 router.get("/reviews/new", reviewsController.new);
