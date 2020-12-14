@@ -66,12 +66,19 @@ module.exports = {
       year: req.body.year,
       price: req.body.price,
       condition: req.body.condition,
-      isSold: req.body.isSold
+      isSold: req.body.isSold,
+      imageUrl: req.files.picture.name
     };
     VehicleInventory.create(inventoryParams)
       .then(vehicleInventory => {
         res.locals.redirect = "/inventory";
         res.locals.vehicleInventory = vehicleInventory;
+        let picture = req.files.picture;
+        picture.mv((__dirname + "/../public/images/" + picture.name), function(error) {
+          if (error) {
+            return res.status(500).send(error);
+          }
+        });
         next();
       })
       .catch(error => {
@@ -90,6 +97,7 @@ module.exports = {
       .then(partsInventory => {
         res.locals.redirect = "/inventory";
         res.locals.partsInventory = partsInventory;
+    
         next();
       })
       .catch(error => {

@@ -1,5 +1,5 @@
 <div class="data-form">
-    <form class="form-signin" action="/inventory/create-vehicle" method="POST">
+    <form class="form-signin" action="/inventory/create-vehicle" method="POST" encType="multipart/form-data">
       <h2 class="form-signin-heading">Add to Vehicle Inventory</h2>
       <label for="inputStockNumber">Stock Number</label>
       <input type="text" name="stockNumber" id="inputStockNumber" class="form-control" placeholder="Stock Number" autofocus>
@@ -15,6 +15,8 @@
       <input type="text" name="condition" id="inputCondition" class="form-control" placeholder="Condition" autofocus>
       <input type="checkbox" id="isSold" name="isSold">
       <label for="isSold">Is this vehicle sold?</label>
+      <label for="inputPicture">Picture</label>
+      <input type="file" name="picture">
       <br/><button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
     </form>
   </div>

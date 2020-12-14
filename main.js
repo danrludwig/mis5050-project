@@ -11,7 +11,16 @@ const express = require("express"),
   inventoryController = require("./controllers/inventoryController"),
   reviewsController = require("./controllers/reviewsController"),
   loginController = require("./controllers/loginController"),
+<<<<<<< HEAD
   mongoose = require("mongoose"),
+=======
+<<<<<<< HEAD
+  mongoose = require("mongoose"),
+  methodOverride = require("method-override"),
+  fileUpload = require("express-fileupload");
+=======
+  mongoose = require("mongoose"),  
+>>>>>>> b283973ae7cff2fd4946349196ad446e626ccc13
   expressSession = require("express-session"),
   passport = require("passport"),
   cookieParser = require("cookie-parser"),
@@ -39,6 +48,7 @@ app.use((req, res, next) => {
 });
 app.post("/login", loginController.apiAuthenticate)
   
+>>>>>>> 03a76e200a4f477c6834738094c2d6a57bb2d896
 
 mongoose.connect(
   "mongodb+srv://chaseanderson:chasedatabase@cluster0.97xaw.mongodb.net/dealer_db?retryWrites=true&w=majority",
@@ -64,6 +74,7 @@ router.use(
   })
 );
 router.use(express.json());
+router.use(fileUpload());
 
 router.get("/", homeController.index);
 
