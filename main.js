@@ -14,8 +14,6 @@ const express = require("express"),
   mongoose = require("mongoose"),
   methodOverride = require("method-override");
 
-  
-
 mongoose.connect(
   "mongodb+srv://chaseanderson:Ca12131994!@cluster0.97xaw.mongodb.net/dealer_db?retryWrites=true&w=majority",
   { useNewUrlParser: true , useUnifiedTopology: true}

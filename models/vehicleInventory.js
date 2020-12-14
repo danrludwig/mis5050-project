@@ -32,6 +32,11 @@ const mongoose = require("mongoose"),
         isSold: {
             type: Boolean,
             required: true
+        },
+        imageUrl: {
+            type: String,
+            match: /^.*\.(jpg|JPG|png|PNG)$/,
+            required: true
         }
     }
   );

@@ -84,12 +84,19 @@ module.exports = {
       partNumber: req.body.partNumber,
       partName: req.body.partName,
       price: req.body.price,
-      quantity: req.body.quantity
+      quantity: req.body.quantity,
+      imageUrl: req.files.picture.name
     };
     PartsInventory.create(inventoryPartParams)
       .then(partsInventory => {
         res.locals.redirect = "/inventory";
         res.locals.partsInventory = partsInventory;
+        let picture = req.files.picture;
+        picture.mv((__dirname + "/../public/images/" + picture.name), function(error) {
+          if (error) {
+            return res.status(500).send(error);
+          }
+        });
         next();
       })
       .catch(error => {
