@@ -11,16 +11,9 @@ const express = require("express"),
   inventoryController = require("./controllers/inventoryController"),
   reviewsController = require("./controllers/reviewsController"),
   loginController = require("./controllers/loginController"),
-<<<<<<< HEAD
-  mongoose = require("mongoose"),
-=======
-<<<<<<< HEAD
   mongoose = require("mongoose"),
   methodOverride = require("method-override"),
   fileUpload = require("express-fileupload");
-=======
-  mongoose = require("mongoose"),  
->>>>>>> b283973ae7cff2fd4946349196ad446e626ccc13
   expressSession = require("express-session"),
   passport = require("passport"),
   cookieParser = require("cookie-parser"),
