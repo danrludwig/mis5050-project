@@ -13,11 +13,10 @@ const express = require("express"),
   loginController = require("./controllers/loginController"),
   mongoose = require("mongoose"),
   methodOverride = require("method-override"),
-  fileUpload = require("express-fileupload");
+  fileUpload = require("express-fileupload"),
   expressSession = require("express-session"),
   passport = require("passport"),
   cookieParser = require("cookie-parser"),
-  methodOverride = require("method-override"),
   User = require("./models/user");
 
 app.use(cookieParser("secret_passcode"));
@@ -40,8 +39,6 @@ app.use((req, res, next) => {
   next();
 });
 app.post("/login", loginController.apiAuthenticate)
-  
->>>>>>> 03a76e200a4f477c6834738094c2d6a57bb2d896
 
 mongoose.connect(
   "mongodb+srv://chaseanderson:chasedatabase@cluster0.97xaw.mongodb.net/dealer_db?retryWrites=true&w=majority",

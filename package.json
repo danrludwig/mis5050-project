@@ -21,11 +21,8 @@
     "ejs": "^3.1.5",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
-<<<<<<< HEAD
     "express-fileupload": "^1.2.0",
-=======
     "express-session": "^1.17.1",
->>>>>>> 03a76e200a4f477c6834738094c2d6a57bb2d896
     "http-status-codes": "^2.1.4",
     "jsonwebtoken": "^8.5.1",
     "method-override": "^3.0.0",
