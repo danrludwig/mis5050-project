@@ -1,6 +1,17 @@
-<div class="col-sm-6">
-    <img src="../images/dealerstockphoto2.jpg" alt="">
+<div style="display: flex; flex-direction: row;">
+    <div class="col-sm-6">
+        <img src="../images/dealerstockphoto2.jpg" alt="">
+    </div>
+    <div class="data-form">
+        <form action="/user/login" method="POST">
+            <h2>Login:</h2>
+            <label for="inputEmail">Email address</label>
+            <input class="form-control" type="email" name="email" id="inputEmail" placeholder="Email address" required>
+            <label for="inputPassword">Password</label>
+            <input class="form-control" type="password" name="password" id="inputPassword" placeholder="Password"
+                required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
+        </form>
+        <a href="/login/register">Create an Account</a>
+    </div>
 </div>
-<h1>Login Portal</h1>
-<a class="button" href="/login/admin">Admin Login</a>
-<a class="button" href="/login/customer">Customer Login</a>
