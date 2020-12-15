@@ -63,29 +63,25 @@ Example user that you can use:
 # Project Requirements
 Requirement                             | What we did 
 ---------------------------------------------------------------
-5 intelinked dynamic pages that display |
- dynamic, database-driven content per   |
- team member.                           |
+5 intelinked dynamic pages that display | We have a home page, a page for user logins, pages to show all the different
+ dynamic, database-driven content per   | database models we have, where it shows a list of them and how people can 
+ team member.                           | add and remove them.
  --------------------------------------------------------------
- At least 5 database transactions per   |
+ At least 5 database transactions per   | Can add and delete users, vehicles, parts, and reviews.
  team member                            |
  --------------------------------------------------------------
- Support for user authentication and    |
- secure storage of user credentials     |
+ Support for user authentication and    | Created a secure storage of user authentication,
+ secure storage of user credentials     | storing that information in our database 
  --------------------------------------------------------------
- Preservation of state                  |
+ Preservation of state                  | We have it so it says logged in for 46 days
                                         |
 ---------------------------------------------------------------
-Development of atleast one REST API and |
-consumption of another third-party API  |
+Development of atleast one REST API and | I developed an api that shows the pictures of the vehicles in the database.
+consumption of another third-party API  | The api we added shows a json format view of random cat facts.
 ---------------------------------------------------------------
 Inclusion and use of atleast two npm    | We added in colors that allows the console to have different colors printed, everytime main.js runs it will print out examples of this
 libraries that are not covered elsewhere| Our second library is called prettier. it is run using the command `npx prettier --check .` which then checks to see that all the code
 in the course                           | matches and makes the code redable. using `npx prettier --write .` will go through and check and overwrite existing code to look better.
----------------------------------------------------------------
-Input validation and error handling for |
-all free-form user entries that could   |
-potentially result in errors            |
 ---------------------------------------------------------------
 
 
