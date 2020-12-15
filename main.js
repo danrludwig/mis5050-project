@@ -17,7 +17,8 @@ const express = require("express"),
   expressSession = require("express-session"),
   passport = require("passport"),
   cookieParser = require("cookie-parser"),
-  User = require("./models/user");
+  User = require("./models/user"),
+  apiController = require("./controllers/apiController");
 
 app.use(cookieParser("secret_passcode"));
 app.use(expressSession({
@@ -95,6 +96,10 @@ router.post("/inventory/create-vehicle", inventoryController.createVehicle, inve
 router.post("/inventory/create-part", inventoryController.createPart, inventoryController.redirectView);
 router.delete("/inventory/parts/:id/delete", inventoryController.deletePart, inventoryController.redirectView);
 router.delete("/inventory/vehicles/:id/delete", inventoryController.deleteVehicle, inventoryController.redirectView);
+
+router.get("/api/token", apiController.getToken);
+router.get("/api/vehicles", loginController.apiAuthenticate, apiController.getToken);
+router.get("/cat-facts", apiController.catFacts);
 
 
 router.use(errorController.pageNotFoundError);
