@@ -42,7 +42,7 @@ app.post("/login", loginController.apiAuthenticate)
 
 mongoose.connect(
   "mongodb+srv://chaseanderson:chasedatabase@cluster0.97xaw.mongodb.net/dealer_db?retryWrites=true&w=majority",
-  { useNewUrlParser: true , useUnifiedTopology: true}
+  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false}
 );
 mongoose.set("useCreateIndex", true);
 
@@ -69,11 +69,11 @@ router.use(fileUpload());
 router.get("/", homeController.index);
 
 router.get("/login", loginController.indexView);
-router.get("/login/admin", loginController.adminLogin);
-router.get("/login/customer", loginController.customerLogin);
-router.post("/user/create", loginController.validate, loginController.create, loginController.redirectView);
+router.get("/login/register", loginController.register);
+router.post("/user/create", loginController.create, loginController.redirectView);
 router.get("/user/login", loginController.login);
 router.post("/user/login", loginController.authenticate);
+router.get("/login/logout", loginController.logout, loginController.redirectView);
 
 
 router.get("/reviews", reviewsController.index, reviewsController.indexView);

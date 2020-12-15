@@ -21,10 +21,6 @@ passportLocalMongoose = require("passport-local-mongoose"),
         lowercase: true,
         unique: true
       },
-      phoneNumber: {
-        type: String,
-        required: true
-      },
       password: {
         type: String
       },

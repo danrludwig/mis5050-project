@@ -24,28 +24,10 @@ module.exports = {
   customerLogin: (req, res) => {
     res.render("login/customer");
   },
-  validate: async (req, res, next) => {                                    
-    await check("email").normalizeEmail({
-      all_lowercase: true
-      }).trim().run(req);                                                     
-    await check("email", "Email is invalid").isEmail().run(req);                                   
-    await check("password", "Password cannot be empty").notEmpty().run(req);    
-  
-    const error = validationResult(req);                     
-      if (!error.isEmpty()) {
-        let messages = error.array().map(e => e.msg);
-        req.skip = true;                                             
-        req.flash("error");                  
-        next();
-      } else {
-        next();                                                      
-      }
-    
-  },
   create: (req, res, next) => {
     if (req.skip) next();
-    let newUser = new Users(getUserParams(req.body));
-    Users.register(newUser, req.body.password, (error, user) => {
+    let newUser = new User(getUserParams(req.body));
+    User.register(newUser, req.body.password, (error, user) => {
       if (user) {
         res.locals.redirect = "/user/login";
         next();
@@ -84,5 +66,13 @@ module.exports = {
           message: "Could not authenticate user."
         });
     })(req, res, next);
+  },
+  register: (req, res) => {
+    res.render("login/register");
+  },
+  logout: (req, res, next) => {
+    req.logout();
+    res.locals.redirect = "/";
+    next();
   },
 };
