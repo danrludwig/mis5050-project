@@ -17,11 +17,8 @@
   },
   "homepage": "https://github.com/danrludwig/mis5050-project#readme",
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.21.0",
-=======
     "colors": "^1.4.0",
->>>>>>> c54a92a1ac2471fb269f9d7363353a6521bfbce8
     "cookie-parser": "^1.4.5",
     "debug": "^4.3.1",
     "ejs": "^3.1.5",
