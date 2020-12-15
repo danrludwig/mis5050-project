@@ -18,15 +18,21 @@
 			<a href="/">
 				<span class="button">Home</span>
 			</a>
-			<a href="/login">
-				<span class="button">Login</span>
-			</a>
 			<a href="/inventory">
 				<span class="button">Inventory</span>
 			</a>
 			<a href="/reviews">
 				<span class="button">Reviews</span>
 			</a>
+			<% if (loggedIn) { %>
+				<a href="/login/logout">
+					<span class="button">Log out</span>
+				</a>
+				<%} else {%>
+					<a href="/login">
+						<span class="button">Login</span>
+					</a>
+				<% } %>
 		</div>
 	</div>
 
