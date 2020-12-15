@@ -79,9 +79,9 @@ Requirement                             | What we did
 Development of atleast one REST API and |
 consumption of another third-party API  |
 ---------------------------------------------------------------
-Inclusion and use of atleast two npm    |
-libraries that are not covered elsewhere|
-in the course                           |
+Inclusion and use of atleast two npm    | We added in colors that allows the console to have different colors printed, everytime main.js runs it will print out examples of this
+libraries that are not covered elsewhere| Our second library is called prettier. it is run using the command `npx prettier --check .` which then checks to see that all the code
+in the course                           | matches and makes the code redable. using `npx prettier --write .` will go through and check and overwrite existing code to look better.
 ---------------------------------------------------------------
 Input validation and error handling for |
 all free-form user entries that could   |
