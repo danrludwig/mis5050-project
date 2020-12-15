@@ -19,6 +19,7 @@ const express = require("express"),
   cookieParser = require("cookie-parser"),
   User = require("./models/user");
 
+
 app.use(cookieParser("secret_passcode"));
 app.use(expressSession({
   secret: "secret_passcode",
@@ -39,6 +40,11 @@ app.use((req, res, next) => {
   next();
 });
 app.post("/login", loginController.apiAuthenticate)
+
+var colors = require('colors');
+colors.enable();
+console.log(`This is to show we added the npm library of colors which adds colors to the console.`.green);
+console.log(`look this is rainbow`.rainbow);
 
 mongoose.connect(
   "mongodb+srv://chaseanderson:chasedatabase@cluster0.97xaw.mongodb.net/dealer_db?retryWrites=true&w=majority",
