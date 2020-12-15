@@ -6,14 +6,14 @@ const Vehicles = require("../models/vehicleInventory"),
 module.exports = {
     getVehicles: (req, res, next) => {
         Vehicles.find({})
-        .then((vebicles) => {
-            Vehicles.forEach(vehicle => {
-                let imageName = style.imageUrl;
-                style.imageUrl = "http://localhost:3000/inventory/vehicles/" + imageName;
+        .then((vehicles) => {
+            vehicles.forEach(vehicle => {
+                let imageName = vehicle.imageUrl;
+                vehicle.imageUrl = "http://localhost:3000/inventory/vehicles/" + imageName;
             })
             res.json({
                 status: httpStatus.OK,
-                data: styles
+                data: vehicles.data
             })
         })
         .catch((error) => {
@@ -37,9 +37,13 @@ module.exports = {
     catFacts: async (req, res, next) => {
         try {
             let result = await axios.get("https://cat-fact.herokuapp.com/facts");
-            res.render("external-api", {data: result.data})
+            res.json({
+                status: httpStatus.OK,
+                data: result.data
+            })
+            // res.render("external-api", {data: result.data})
         } catch (error) {
-            res.send("somethign went wrong");
+            res.send("something went wrong");
         }
     }
 }
