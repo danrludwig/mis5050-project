@@ -2,6 +2,94 @@ Project title: Dealership Website
 Team name: MISter steal your girl
 Team members: Dan Ludwig and Chase Anderson
 
+
+Project Milestone 4
+December 12, 2020
+
+# Application Summary
+Level Up Car Sales LLC., a small used car dealership in Ogden, Utah needs a functional
+web form that will collect referral information for customers to be contacted by employees of
+the dealership. As of right now they only have their phone number listed and an email for
+customers to contact them. With this form they will be able to respond from multiple emails
+within the company and thus respond faster to customers. There also will be a list of all the 
+cars the inventory has and has had (each car will be listed as sold or not sold). A list of parts
+being sold at the dealership will also be available. 
+An admin can add vehicles and parts to the list of inventory (both parts and vehicles). There is
+also an option for other users to create an account and sign in, that way they can create a referral.
+The people who are going to use this web application are the owners of the dealership and the customers
+of the dealership. 
+
+# Routing Guide
+router.get("/") - renders the homepage
+
+router.get("/login") - renders a page to choose whether to login as an admin or customer
+router.get("/login/admin") - renders the loginpage for admins
+router.get("/login/customer") - renders the login page for customers 
+router.post("/user/create") - creates a new user 
+router.get("/user/login") - renders a login page for both admins and customers
+router.post("/user/login") - logs in the user
+
+router.get("/reviews") - renders a list of reviews
+router.get("/reviews/new") - renders a page to where someone can create a new review
+router.post("/reviews/create") - posts information from /reviews/new to the database
+router.get("/reviews/:id/edit") - lets people edit a review
+router.put("/reviews/:id/update") - updates the review
+router.get("/reviews/:id") - shows one specific review
+router.delete("/reviews/:id/delete") - deletes a selected review
+
+router.get("/inventory") - renders an page where people can choose to look at either the vehicles inventory or the parts inventory
+router.get("/inventory/vehicles") - renders a page that lists all the vehicles
+router.get("/inventory/parts") - renders a page that lists all the parts
+router.get("/inventory/new") - renders a page  where a user can add a new vehicle
+router.get("/inventory/new-parts") - renders a pege where a user can add a new part
+router.post("/inventory/create-vehicle") - add a vehicle to the database 
+router.post("/inventory/create-part") - adds a part to the database 
+router.delete("/inventory/parts/:id/delete") - deletes a part from the database 
+router.delete("/inventory/vehicles/:id/delete") - deltes a vehicle from the database
+
+
+# User Credentials and Roles
+admin:
+    Can add and remove items from inventory
+    Can create referrals and reviews
+guest:
+    Can create reviews and reviews
+
+Example user that you can use:
+    email and username: admin@admin.com
+    password: admin
+
+
+# Project Requirements
+Requirement                             | What we did 
+---------------------------------------------------------------
+5 intelinked dynamic pages that display |
+ dynamic, database-driven content per   |
+ team member.                           |
+ --------------------------------------------------------------
+ At least 5 database transactions per   |
+ team member                            |
+ --------------------------------------------------------------
+ Support for user authentication and    |
+ secure storage of user credentials     |
+ --------------------------------------------------------------
+ Preservation of state                  |
+                                        |
+---------------------------------------------------------------
+Development of atleast one REST API and |
+consumption of another third-party API  |
+---------------------------------------------------------------
+Inclusion and use of atleast two npm    |
+libraries that are not covered elsewhere|
+in the course                           |
+---------------------------------------------------------------
+Input validation and error handling for |
+all free-form user entries that could   |
+potentially result in errors            |
+---------------------------------------------------------------
+
+
+
 Project Milestone 3
 November 11, 2020
 
